@@ -43,12 +43,15 @@ module powerbi.visuals {
         public static capabilities: VisualCapabilities = {
             dataRoles: [{
                 name: matrixRoleNames.rows,
+                displayName: "Source Node",
                 kind: VisualDataRoleKind.Grouping
             }, {
                 name: matrixRoleNames.columns,
+                displayName: "Target Node",
                 kind: VisualDataRoleKind.Grouping
             }, {
                 name: matrixRoleNames.values,
+                displayName: "Node&Link Properties",
                 kind: VisualDataRoleKind.Measure
             }],
             dataViewMappings: [{
@@ -357,31 +360,31 @@ module powerbi.visuals {
             var shape = false;
             var image = false;
             for (var i = 0; i < valueSources.length; i++) {
-                if (valueSources[i].displayName == "value") {
+                if (valueSources[i].displayName.toLowerCase() == "linkweight") {
                     indexList.valueIndex = i;
                     continue;
                 }
-                if (valueSources[i].displayName == "groupsource") {
+                if (valueSources[i].displayName.toLowerCase() == "sourcegroup") {
                     indexList.sourceGroupIndex = i;
                     continue;
                 }
-                if (valueSources[i].displayName == "grouptarget") {
+                if (valueSources[i].displayName.toLowerCase() == "targetgroup") {
                     indexList.targetGroupIndex = i;
                     continue;
                 }
-                if (valueSources[i].displayName == "sizesource") {
+                if (valueSources[i].displayName.toLowerCase() == "sourcesize") {
                     indexList.sourceSizeIndex = i;
                     continue;
                 }
-                if (valueSources[i].displayName == "sizetarget") {
+                if (valueSources[i].displayName.toLowerCase() == "targetsize") {
                     indexList.targetSizeIndex = i;
                     continue;
                 }
-                if (valueSources[i].displayName == "imagesource") {
+                if (valueSources[i].displayName.toLowerCase() == "sourceimage") {
                     indexList.sourceImageIndex = i;
                     continue;
                 }
-                if (valueSources[i].displayName == "imagetarget") {
+                if (valueSources[i].displayName.toLowerCase() == "targetimage") {
                     indexList.targetImageIndex = i;
                     continue;
                 }
